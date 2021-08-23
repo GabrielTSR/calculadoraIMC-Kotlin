@@ -41,7 +41,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/peso"
+                android:id="@+id/edit_text_peso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
@@ -55,7 +55,7 @@
             <!--   drawableTint pinta o drawable-->
 
             <EditText
-                android:id="@+id/altura"
+                android:id="@+id/edit_text_altura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -68,7 +68,7 @@
                 android:textColorHint="@color/blackWeak" />
 
             <Button
-                android:id="@+id/buttonCalcular"
+                android:id="@+id/btnCalcular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -78,7 +78,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/numeroImc"
+                android:id="@+id/text_view_numeroImc"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -90,7 +90,7 @@
                 android:textSize="60sp" />
 
             <TextView
-                android:id="@+id/statusImc"
+                android:id="@+id/text_view_statusImc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"

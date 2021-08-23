@@ -14,15 +14,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        buttonCalcular.setOnClickListener {
-            val altura = findViewById<EditText>(R.id.altura).text.toString().replace(",", ".").toDouble()
-            val peso = findViewById<EditText>(R.id.peso).text.toString().replace(",", ".").toDouble()
-            val buttonCalcular = findViewById<Button>(R.id.buttonCalcular)
-            var numeroImc = findViewById<TextView>(R.id.numeroImc)
-            var statusImc = findViewById<TextView>(R.id.statusImc)
+        btnCalcular.setOnClickListener {
+            val etAltura = findViewById<EditText>(R.id.edit_text_altura).text.toString().replace(",", ".")
+            val etPeso = findViewById<EditText>(R.id.edit_text_peso).text.toString().replace(",", ".")
+            val btnCalcularImc = findViewById<Button>(R.id.btnCalcular)
+            var tvImc = findViewById<TextView>(R.id.text_view_numeroImc)
+            var tvStatusImc = findViewById<TextView>(R.id.text_view_statusImc)
 
-            numeroImc.text = exibirImc(altura, peso)
-            statusImc.text = definirStatusImc(numeroImc.text.toString().toDouble())
+            if (etAltura.isEmpty() || etPeso.isEmpty()) {
+                Toast.makeText(this, "ATENÇÃO. OS CAMPOS NÃO FORAM PREENCHIDOS CORRETAMENTE!", Toast.LENGTH_SHORT).show()
+            } else {
+
+                tvImc.text = exibirImc(etAltura.toDouble(), etPeso.toDouble())
+                tvStatusImc.text = definirStatusImc(tvImc.text.toString().toDouble())
+            }
         }
     }
 }
