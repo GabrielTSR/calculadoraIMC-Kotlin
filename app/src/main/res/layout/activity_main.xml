@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/activity_background"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    android:background= "@drawable/activity_background">
+    tools:context=".MainActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:text="IMC"
-                android:textColor="#121212"
+                android:textColor="@color/blackWeak"
                 android:textSize="38sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -41,6 +41,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
+                android:id="@+id/peso"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
@@ -48,11 +49,13 @@
                 android:drawableStart="@drawable/peso_icone"
                 android:drawablePadding="32dp"
                 android:hint="Peso"
+                android:inputType="numberDecimal"
                 android:padding="16dp"
-                android:textColorHint="#121212" />
+                android:textColorHint="@color/blackWeak" />
             <!--   drawableTint pinta o drawable-->
 
             <EditText
+                android:id="@+id/altura"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -60,19 +63,22 @@
                 android:drawableStart="@drawable/altura_icone"
                 android:drawablePadding="32dp"
                 android:hint="Altura"
+                android:inputType="numberDecimal"
                 android:padding="16dp"
-                android:textColorHint="#121212" />
+                android:textColorHint="@color/blackWeak" />
 
             <Button
+                android:id="@+id/buttonCalcular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_border"
                 android:text="CALCULAR"
-                android:textColor="#ffffff"
+                android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/numeroImc"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
@@ -80,16 +86,17 @@
                 android:background="@drawable/resultado_container"
                 android:gravity="center"
                 android:padding="16dp"
-                android:text="28.0"
+                android:text="0.0"
                 android:textSize="60sp" />
 
             <TextView
+                android:id="@+id/statusImc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="7dp"
                 android:text="Resultado"
                 android:textAlignment="center"
-                android:textColor="#121212"
+                android:textColor="@color/blackWeak"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
