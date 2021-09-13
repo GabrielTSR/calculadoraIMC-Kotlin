@@ -60,6 +60,7 @@
             android:text="Login"
             android:textStyle="bold"
             android:textSize="34sp"/>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -71,8 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-mail"
-            app:helperText=""
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:helperText="">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -85,8 +85,7 @@
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
             android:hint="Senha"
-            app:helperText=""
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            app:helperText="">
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
