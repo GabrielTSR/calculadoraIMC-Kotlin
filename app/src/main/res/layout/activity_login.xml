@@ -122,7 +122,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:autoLink="web" android:id=""
                     android:linksClickable="true"
                     android:text="Esqueci a senha"
                     android:textColor="#00AAFF"
@@ -147,7 +146,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autoLink="web" android:id=""
                 android:linksClickable="true"
                 android:text="Criar uma conta agora"
                 android:textColor="#00AAFF"
