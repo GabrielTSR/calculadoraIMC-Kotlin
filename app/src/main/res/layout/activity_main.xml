@@ -20,11 +20,12 @@
             android:paddingEnd="36dp">
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="22dp"
-                android:src="@drawable/bmi" />
+                android:src="@drawable/logo"
+                android:layout_marginBottom="20dp"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -51,7 +52,9 @@
                 android:hint="Peso"
                 android:inputType="numberDecimal"
                 android:padding="16dp"
-                android:textColorHint="@color/blackWeak" />
+                android:textColorHint="@color/blackWeak"
+                android:textColor="@color/white"
+                android:drawableTint="wh"/>
             <!--   drawableTint pinta o drawable-->
 
             <EditText
