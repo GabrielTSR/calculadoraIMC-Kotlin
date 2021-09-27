@@ -49,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:drawableStart="@drawable/ic_baseline_lock_24"
+                android:drawableTint="@color/colorPrimary"
                 android:text="Dados para autenticação"
                 android:textColor="#CCCCCC"
                 android:textSize="20sp"
@@ -85,6 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
                 android:drawableStart="@drawable/ic_baseline_person_24"
+                android:drawableTint="@color/colorPrimary"
                 android:text="Dados pessoais"
                 android:textColor="#CCCCCC"
                 android:textSize="20sp"
@@ -137,13 +139,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                android:hint="Data de nascimento"></com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="match_parent"
