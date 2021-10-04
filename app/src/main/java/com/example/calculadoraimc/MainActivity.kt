@@ -14,6 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar!!.hide()
+
         val etAltura = findViewById<EditText>(R.id.edit_text_altura)
         val etPeso = findViewById<EditText>(R.id.edit_text_peso)
         val btnCalcularImc = findViewById<Button>(R.id.btnCalcular)
