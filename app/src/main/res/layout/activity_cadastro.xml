@@ -62,6 +62,7 @@
                 app:helperText="">
 
                 <EditText
+                    android:id="@+id/edit_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp" />
@@ -76,9 +77,10 @@
                 app:passwordToggleEnabled="true">
 
                 <EditText
+                    android:id="@+id/edit_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp" />
+                    android:layout_marginBottom="6dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -90,7 +92,7 @@
                 android:text="Dados pessoais"
                 android:textColor="#CCCCCC"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -99,6 +101,7 @@
                 app:helperText="">
 
                 <EditText
+                    android:id="@+id/edit_nome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp" />
@@ -111,6 +114,7 @@
                 app:helperText="">
 
                 <EditText
+                    android:id="@+id/edit_profissao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp" />
@@ -123,6 +127,7 @@
                 app:helperText="">
 
                 <EditText
+                    android:id="@+id/edit_altura"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp" />
@@ -135,9 +140,12 @@
                 app:helperText="">
 
                 <EditText
+                    android:id="@+id/et_data_nascimento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp" />
+                    android:layout_marginBottom="6dp"
+                    android:focusable="false"
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -148,17 +156,20 @@
                 android:textSize="18sp" />
 
             <RadioGroup
+                android:id="@+id/radioGroupGenero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <RadioButton
+                    android:id="@+id/radioButtonFeminino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="3dp"
-                    android:text="Feminino" />
+                    android:text="Feminino"/>
 
                 <RadioButton
+                    android:id="@+id/radioButtonMasculino"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Masculino" />

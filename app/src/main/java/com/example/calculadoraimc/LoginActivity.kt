@@ -14,10 +14,11 @@ class LoginActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         val tvLinkCadastro = findViewById<TextView>(R.id.tv_linkParaCadastro)
-        tvLinkCadastro.setOnClickListener {
-            val abrirDatePickerActivity = Intent(this, DatePickerDialog::class.java)
 
-            startActivity(abrirDatePickerActivity)
+        tvLinkCadastro.setOnClickListener {
+            val abrirCadastroActivity = Intent(this, CadastroActivity::class.java)
+
+            startActivity(abrirCadastroActivity)
         }
     }
 }
