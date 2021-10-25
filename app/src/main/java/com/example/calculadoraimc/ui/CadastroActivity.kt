@@ -1,6 +1,7 @@
-package com.example.calculadoraimc
+package com.example.calculadoraimc.ui
 
 import android.app.DatePickerDialog
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -8,6 +9,11 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
+import com.example.calculadoraimc.R
+import com.example.calculadoraimc.model.Usuario
+import com.example.calculadoraimc.utils.converteStringToLocalDate
+import java.time.LocalDate
 import java.util.*
 
 class CadastroActivity : AppCompatActivity() {
@@ -67,8 +73,49 @@ class CadastroActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if (validarCampos()){
-            //Salvar o registro
+            //Criar o objeto usuário
+                val nascimento = converteStringToLocalDate(etDataNascimento.text.toString())
+
+                val usuario = Usuario(
+                    1,
+                    etNome.text.toString(),
+                    etEmail.text.toString(),
+                    etSenha.text.toString(),
+                    0,
+                    etAltura.text.toString().toDouble(),
+                    LocalDate.of(
+                        nascimento.year,
+                        nascimento.month,
+                        nascimento.dayOfMonth
+                    ),
+                    etProfissao.text.toString(),
+                    if (rbFeminino.isChecked) 'F' else 'M'
+                )
+
+            /*Salvar o registro
+            Em um SharedPreferences
+
+            A instrução abaixo irá criar um
+            arquivo SharedPreferences se não existir
+            Se existir, ele será aberto para edição*/
+            val dados = getSharedPreferences("usuario", Context.MODE_PRIVATE)
+
+            //Vamos criar o objeto que permitirá a
+            //edição dos dados do arquivo SharedPreferences
+            val editor = dados.edit()
+            editor.putInt("id", usuario.id)
+            editor.putString("nome", usuario.nome)
+            editor.putString("email", usuario.email)
+            editor.putString("senha", usuario.senha)
+            editor.putInt("peso", usuario.peso)
+            editor.putFloat("altura", usuario.altura.toFloat())
+            editor.putString("dataNascimento", usuario.dataNascimento.toString())
+            editor.putString("profissao", usuario.profissao)
+            editor.putString("sexo", usuario.sexo.toString())
+            editor.apply()
         }
+
+        Toast.makeText(this, "Usuário cadastrado!", Toast.LENGTH_SHORT).show()
 
         return true
     }
