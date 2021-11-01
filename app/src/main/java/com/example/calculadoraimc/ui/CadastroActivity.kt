@@ -2,19 +2,21 @@ package com.example.calculadoraimc.ui
 
 import android.app.DatePickerDialog
 import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
 import com.example.calculadoraimc.R
 import com.example.calculadoraimc.model.Usuario
+import com.example.calculadoraimc.utils.convertBitmapToBase64
 import com.example.calculadoraimc.utils.converteStringToLocalDate
-import java.time.LocalDate
 import java.util.*
+
+const val CODE_IMAGE = 100
 
 class CadastroActivity : AppCompatActivity() {
 
@@ -27,6 +29,9 @@ class CadastroActivity : AppCompatActivity() {
     lateinit var rgGenero : RadioGroup
     lateinit var rbMasculino : RadioButton
     lateinit var rbFeminino : RadioButton
+    lateinit var tvTrocarFoto : TextView
+    lateinit var  ivFotoPerfil : ImageView
+    var imageBitmap : Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,9 +46,16 @@ class CadastroActivity : AppCompatActivity() {
         rgGenero = findViewById(R.id.radioGroupGenero)
         rbMasculino = findViewById(R.id.radioButtonMasculino)
         rbFeminino = findViewById(R.id.radioButtonFeminino)
+        tvTrocarFoto = findViewById(R.id.tv_trocar_foto)
+        ivFotoPerfil = findViewById(R.id.iv_foto_perfil)
 
         //Menu da atividade
         supportActionBar!!.title = "Novo usuário"
+
+        //Abrir galeria de fotos para escolher uma foto para o perfil
+        tvTrocarFoto.setOnClickListener {
+            abrirGaleria()
+        }
 
         //calendario
         //Criar um calendário
@@ -59,10 +71,44 @@ class CadastroActivity : AppCompatActivity() {
         etDataNascimento.setOnClickListener {
             val dp = DatePickerDialog(this,
                 DatePickerDialog.OnDateSetListener{ view, _ano, _mes, _dia ->
-                    etDataNascimento.setText("$_dia/${_mes + 1}/$_ano")
+
+                    var diaFormatado = _dia.toString()
+                    var mesFormatado = (_mes+1).toString()
+
+                    if (_dia < 10) diaFormatado = "0$diaFormatado"
+                    if (_mes < 9) mesFormatado = "0$mesFormatado"
+
+                    etDataNascimento.setText("$diaFormatado/$mesFormatado/$_ano")
                 }, ano, mes, dia)
             dp.show()
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, imagem: Intent?) {
+        super.onActivityResult(requestCode, resultCode, imagem)
+
+        if (requestCode == CODE_IMAGE && resultCode == -1){
+            //Recuperar a imagem do stream
+            val fluxoImagem = contentResolver.openInputStream(imagem!!.data!!)
+
+            //Converter os bits em um bitmap
+            imageBitmap = BitmapFactory.decodeStream(fluxoImagem)
+
+            //Colocar o bitmap no ImageView
+            ivFotoPerfil.setImageBitmap(imageBitmap)
+        }
+    }
+
+    private fun abrirGaleria() {
+        // Abrir a galeria de imagens do dispositivo
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+
+        //Abrir a activity responsável por exibir as imagens
+        //Esta activity retrornará o conteúdo selecionado
+        //para o nosso app.
+
+        startActivityForResult(Intent.createChooser(intent, "Escolha uma foto"), CODE_IMAGE)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -83,13 +129,10 @@ class CadastroActivity : AppCompatActivity() {
                     etSenha.text.toString(),
                     0,
                     etAltura.text.toString().toDouble(),
-                    LocalDate.of(
-                        nascimento.year,
-                        nascimento.month,
-                        nascimento.dayOfMonth
-                    ),
+                    nascimento,
                     etProfissao.text.toString(),
-                    if (rbFeminino.isChecked) 'F' else 'M'
+                    if (rbFeminino.isChecked) 'F' else 'M',
+                    convertBitmapToBase64()
                 )
 
             /*Salvar o registro

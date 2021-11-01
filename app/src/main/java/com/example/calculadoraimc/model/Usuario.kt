@@ -1,6 +1,7 @@
 package com.example.calculadoraimc.model
 
 import android.provider.ContactsContract
+import java.io.StringBufferInputStream
 import java.time.LocalDate
 
 data class Usuario (
@@ -12,5 +13,6 @@ data class Usuario (
     var altura: Double,
     var dataNascimento: LocalDate,
     var profissao: String,
-    var sexo: Char
+    var sexo: Char,
+    var fotoPerfil: String
 )
