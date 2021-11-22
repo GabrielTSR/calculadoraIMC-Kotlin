@@ -22,16 +22,15 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                app:cardCornerRadius="60dp"
-                android:layout_marginTop="32dp">
+                android:layout_marginTop="32dp"
+                app:cardCornerRadius="60dp">
 
                 <ImageView
                     android:id="@+id/iv_foto_perfil"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/profile"
-                    />
+                    android:src="@drawable/ic_baseline_person_24" />
 
             </androidx.cardview.widget.CardView>
 
@@ -40,10 +39,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="6dp"
-                android:text="Trocar foto  "
                 android:drawableEnd="@drawable/ic_baseline_arrow_circle_down_24"
                 android:drawableTint="@color/colorPrimary"
                 android:fontFamily="@font/montserrat"
+                android:text="Trocar foto  "
                 android:textColor="@color/colorPrimary"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -84,7 +83,7 @@
                     android:id="@+id/edit_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"/>
+                    android:layout_marginBottom="6dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -96,7 +95,7 @@
                 android:text="Dados pessoais"
                 android:textColor="#CCCCCC"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -132,6 +131,7 @@
 
                 <EditText
                     android:id="@+id/edit_altura"
+                    android:inputType="numberDecimal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp" />
@@ -140,16 +140,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Data de nascimento"
-                app:helperText="">
+                android:hint="Data de nascimento">
 
                 <EditText
                     android:id="@+id/et_data_nascimento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp"
-                    android:focusable="false"
-                    />
+                    android:focusable="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -170,7 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="3dp"
-                    android:text="Feminino"/>
+                    android:text="Feminino" />
 
                 <RadioButton
                     android:id="@+id/radioButtonMasculino"

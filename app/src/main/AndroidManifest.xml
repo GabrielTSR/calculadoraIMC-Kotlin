@@ -11,6 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.DashBoardActivity">
         </activity>
+        <activity android:name=".ui.PesagemActivity">
+        </activity>
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

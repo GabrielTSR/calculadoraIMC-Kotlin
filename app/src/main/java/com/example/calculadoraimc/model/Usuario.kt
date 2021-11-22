@@ -1,10 +1,8 @@
 package com.example.calculadoraimc.model
 
-import android.provider.ContactsContract
-import java.io.StringBufferInputStream
 import java.time.LocalDate
 
-data class Usuario (
+data class Usuario(
     var id: Int,
     var nome:String,
     var email: String,
