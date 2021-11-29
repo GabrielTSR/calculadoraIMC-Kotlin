@@ -180,7 +180,7 @@ class CadastroActivity : AppCompatActivity() {
             editor.putString("senha", usuario.senha)
             editor.putInt("peso", usuario.peso)
             editor.putFloat("altura", usuario.altura.toFloat())
-            editor.putString("dataNascimento", usuario.dataNascimento.toString())
+            editor.putString("dataNascimento", usuario.dataRegistro.toString())
             editor.putString("profissao", usuario.profissao)
             editor.putString("sexo", usuario.sexo.toString())
             editor.putString("fotoPerfil", usuario.fotoPerfil)

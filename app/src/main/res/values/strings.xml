@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Calculadora IMC</string>
+
+    <string-array name="níveis">
+        <item>Atividade leve</item>
+        <item>Atividade moderada</item>
+        <item>Atividade intensa</item>
+    </string-array>
 </resources>

@@ -1,87 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:src="@drawable/exercitando" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:paddingTop="20dp"
-            android:text="Pesagem"
-            android:layout_gravity="center"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="35sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_marginStart="20dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="25dp"
-            android:text="Data da pesagem"
-            android:textSize="25sp" />
-        <TextView
-            android:layout_marginStart="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="15dp"
-            android:text="12/01/2005"
-            android:textSize="30sp"/>
-
-        <TextView
-            android:layout_marginStart="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="25dp"
-            android:text="Digite seu peso"
-            android:textSize="25sp"
-            android:textColor="@color/colorPrimaryDark"/>
-
-            <EditText
-                android:id="@+id/et_peso"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNovoPeso"
+                android:layout_width="234dp"
+                android:layout_height="48dp"
                 android:hint="0.0"
-                android:layout_marginStart="20dp"
-                android:textSize="25sp"
-                android:layout_width="match_parent"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="@+id/textView5"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                app:cardCornerRadius="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/profile" />
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:srcCompat="@drawable/exercitando" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
-                />
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Vamos nos pesar?"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-        <Button
-            android:id="@+id/btn_salvar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginBottom="6dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:padding="25dp"
-            android:text="Salvar"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            <TextView
+                android:id="@+id/tv_data_pesagem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserrat"
+                android:text="21/02/2000"
+                android:textColor="@color/blackWeak"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textView6"
+                app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="0dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="60dp"
+                android:drawableStart="@drawable/ic_baseline_info_24"
+                android:drawablePadding="15dp"
+                android:drawableTint="#000000"
+                android:fontFamily="@font/montserrat"
+                android:text="Mantenha exercícios constantes, e uma dieta equilibrada para alcançar a perda de peso!"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_wave_bottom"
-        android:layout_alignParentBottom="true"/>
-</RelativeLayout>
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:drawableStart="@drawable/ic_baseline_accessibility_24"
+                android:drawablePadding="15dp"
+                android:drawableTint="#000000"
+                android:fontFamily="@font/montserrat"
+                android:text="Dados da sua pesagem"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="@+id/textView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="15dp"
+                android:drawableTint="#000000"
+                android:fontFamily="@font/montserrat"
+                android:text="Seu novo peso"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="@+id/spinner_niveis"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_niveis" />
+
+            <Spinner
+                android:id="@+id/spinner_niveis"
+                android:layout_width="262dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="12dp"
+                android:entries="@array/níveis"
+                app:layout_constraintStart_toStartOf="@+id/textView4"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:drawablePadding="15dp"
+                android:drawableTint="#000000"
+                android:fontFamily="@font/montserrat"
+                android:text="Nível de atividade"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="@+id/tv_data_pesagem"
+                app:layout_constraintTop_toBottomOf="@+id/tv_data_pesagem" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:drawablePadding="15dp"
+                android:drawableTint="#000000"
+                android:fontFamily="@font/montserrat"
+                android:text="Data da pesagem"
+                android:textColor="@color/colorPrimaryDark"
+                app:layout_constraintStart_toStartOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <Button
+                android:id="@+id/btn_salvar"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:padding="0dp"
+                android:text="Salvar"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNovoPeso" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_wave_bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="MissingConstraints" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</LinearLayout>

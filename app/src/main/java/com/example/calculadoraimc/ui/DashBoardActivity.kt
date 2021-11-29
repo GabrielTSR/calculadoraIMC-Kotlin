@@ -6,9 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import com.example.calculadoraimc.R
-import com.example.imc.utils.autenticar
 import com.example.imc.utils.calcularIdade
 import com.example.imc.utils.convertBase64ToBitmap
 
@@ -21,7 +19,7 @@ class DashBoardActivity : AppCompatActivity() {
     lateinit var tvPeso : TextView
     lateinit var tvIdade : TextView
     lateinit var tvAltura : TextView
-    lateinit var tvPerfil : ImageView
+    lateinit var ivPerfil : ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +33,7 @@ class DashBoardActivity : AppCompatActivity() {
         tvPeso = findViewById(R.id.tv_peso)
         tvIdade = findViewById(R.id.tv_idade)
         tvAltura = findViewById(R.id.tv_altura)
-        tvPerfil = findViewById(R.id.iv_foto_perfil)
+        ivPerfil = findViewById(R.id.iv_foto_perfil)
         val llPesarAgora = findViewById<LinearLayout>(R.id.ll_pesar_agora)
 
         llPesarAgora.setOnClickListener {
@@ -58,9 +56,7 @@ class DashBoardActivity : AppCompatActivity() {
         tvIdade.text = calcularIdade(arquivo.getString("dataNascimento", "").toString()).toString()
 
         val bitmap = convertBase64ToBitmap(arquivo.getString("fotoPerfil","")!!)
-        tvPerfil.setImageBitmap(bitmap)
-
-
+            ivPerfil.setImageBitmap(bitmap)
     }
 
 }

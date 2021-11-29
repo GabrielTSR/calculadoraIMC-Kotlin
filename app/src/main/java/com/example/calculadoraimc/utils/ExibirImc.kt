@@ -1,6 +1,6 @@
 package com.example.calculadoraimc
 
-import android.widget.Toast
+import com.example.calculadoraimc.utils.calcularImc
 
 fun exibirImc(altura: Double, peso: Double): String {
 
