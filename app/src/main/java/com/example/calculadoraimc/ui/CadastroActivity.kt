@@ -148,7 +148,7 @@ class CadastroActivity : AppCompatActivity() {
                 editNome.text.toString(),
                 editEmail.text.toString(),
                 editSenha.text.toString(),
-                0,
+                "0",
                 editAltura.text.toString().toDouble(),
                 LocalDate.of(
                     nascimento.year,
@@ -178,7 +178,7 @@ class CadastroActivity : AppCompatActivity() {
             editor.putString("nome", usuario.nome)
             editor.putString("email", usuario.email)
             editor.putString("senha", usuario.senha)
-            editor.putInt("peso", usuario.peso)
+            editor.putString("peso", usuario.peso.toString())
             editor.putFloat("altura", usuario.altura.toFloat())
             editor.putString("dataNascimento", usuario.dataRegistro.toString())
             editor.putString("profissao", usuario.profissao)

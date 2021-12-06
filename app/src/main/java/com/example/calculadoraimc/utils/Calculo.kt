@@ -6,7 +6,7 @@ fun calcularImc(context : Context):Double {
 
     val arquivo = context.getSharedPreferences("usuario", Context.MODE_PRIVATE)
 
-    val pesoAtual = arquivo.getString("pesagem", "").split(";").toTypedArray().last().toInt()
+    val pesoAtual = arquivo.getString("pesagem", "")!!.split(";").toTypedArray().last().toFloat()
 
     val altura = arquivo.getFloat("altura", 0.0f)
 

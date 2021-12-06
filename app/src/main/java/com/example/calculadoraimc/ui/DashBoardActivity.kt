@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.example.calculadoraimc.R
 import com.example.imc.utils.calcularIdade
 import com.example.imc.utils.convertBase64ToBitmap
@@ -20,6 +21,7 @@ class DashBoardActivity : AppCompatActivity() {
     lateinit var tvIdade : TextView
     lateinit var tvAltura : TextView
     lateinit var ivPerfil : ImageView
+    lateinit var cardHistorico : CardView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,11 +36,13 @@ class DashBoardActivity : AppCompatActivity() {
         tvIdade = findViewById(R.id.tv_idade)
         tvAltura = findViewById(R.id.tv_altura)
         ivPerfil = findViewById(R.id.iv_foto_perfil)
+//        cardNovaPesagem = findViewById(R.id.cardView)
+        cardHistorico = findViewById(R.id.card_historico)
         val llPesarAgora = findViewById<LinearLayout>(R.id.ll_pesar_agora)
 
         llPesarAgora.setOnClickListener {
-            val pesagem = Intent(this, PesagemActivity::class.java)
-            startActivity(pesagem)
+            val intent = intent(HistoricoActivity::class.java)
+            startActivity(intent)
         }
 
         carregarDashboard()
@@ -58,5 +62,9 @@ class DashBoardActivity : AppCompatActivity() {
         val bitmap = convertBase64ToBitmap(arquivo.getString("fotoPerfil","")!!)
             ivPerfil.setImageBitmap(bitmap)
     }
+
+}
+
+private operator fun Intent.invoke(java: Class<HistoricoActivity>) {
 
 }
